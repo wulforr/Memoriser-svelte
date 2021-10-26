@@ -1,0 +1,32 @@
+<script>
+	export let sentence;
+	export let handleEdit;
+	export let handleDelete;
+</script>
+
+<div class="row">
+	<p>
+		{sentence.firstSentence}
+	</p>
+	<div class="actions">
+		<img src='edit.svg' alt="Edit" on:click={handleEdit} />
+		<img src='delete.svg' alt="Delete" on:click={handleDelete} />
+	</div>
+</div>
+
+<style>
+	.row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.row:hover {
+		background-color: rgba(182, 195, 207, 0.2);
+	}
+	img {
+		width: 15px;
+	}
+	p {
+		margin: 0.5rem 0;
+	}
+</style>
