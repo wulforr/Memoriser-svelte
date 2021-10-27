@@ -17,9 +17,9 @@
 	import Login from '../lib/Login.svelte';
 	import Signup from '../lib/Signup.svelte';
 	let userName = null;
-	$: userName = $userInfo.userName;
+	$: userName = $userInfo?.userName;
 	onMount(() => {
-		if(userName){
+		if($userInfo){
 			replace('/');
 		}
 	})

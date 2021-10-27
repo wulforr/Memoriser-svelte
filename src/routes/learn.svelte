@@ -30,10 +30,8 @@
 	import { onMount } from 'svelte';
 	import {push} from 'svelte-spa-router'
 
-	// let data = null;
 	onMount(() => {
-		console.log("runing onMount in learn", $userInfo);
-		if(!userInfo){
+		if(!$userInfo){
 			push('/auth');
 		}
 		else{
@@ -45,7 +43,6 @@
 				const response = await Promise.all([sentenceApiCall, wordsApiCall]);
 				const tempData = await Promise.all(response.map((r) => r.json()));
 				data.set(tempData);
-				console.log("data is", $data)
 			}
 			getData()
 		}

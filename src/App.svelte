@@ -8,13 +8,11 @@
 	import {getCookie} from './utils/cookie'
 
 	onMount(() => {
-		console.log("runing onMount", userInfo);
 		let cookie = getCookie('userToken');
 		if(cookie){
 			userInfo.set(cookie); 
 		}
 	});
-	$: console.log("userInfo", $userInfo);
 </script>
 
 <div>

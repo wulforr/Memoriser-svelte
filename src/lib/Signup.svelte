@@ -1,6 +1,5 @@
 <script>
 	import { setCookie } from '../utils/cookie.js';
-	import axios from 'axios';
 	export let toggleShowLogin;
 	let username = '';
 	let email = '';
@@ -18,16 +17,28 @@
 		}
 		try {
 			signUpBtnText = 'Signing Up';
-			const { data } = await axios({
-				url: 'https://memoriser-strapi.herokuapp.com/auth/local/register',
+			// const { data } = await axios({
+			// 	url: 'https://memoriser-strapi.herokuapp.com/auth/local/register',
+			// 	method: 'POST',
+			// 	headers: { 'Content-Type': 'application/json' },
+			// 	data: JSON.stringify({
+			// 		username,
+			// 		email,
+			// 		password
+			// 	})
+			// });
+			const response = await fetch('https://memoriser-strapi.herokuapp.com/auth/local', {
 				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				data: JSON.stringify({
+				headers: {
+				    'Content-Type': 'application/json',
+  				},
+  				body: JSON.stringify({
 					username,
 					email,
 					password
 				})
-			});
+			})
+			const data = await response.json()
 			setCookie(
 				'userToken',
 				{ jwt: data.jwt, userId: data.user.id, userName: data.user.username },

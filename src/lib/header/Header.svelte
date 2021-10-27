@@ -1,7 +1,6 @@
 <script>
 	import {location, link} from 'svelte-spa-router';
 	export let userName;
-	console.log("location", $location);
 </script>
 
 <header>

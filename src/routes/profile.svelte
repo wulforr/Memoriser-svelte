@@ -22,7 +22,6 @@
 				const response = await Promise.all([sentenceApiCall, wordsApiCall]);
 				const tempData = await Promise.all(response.map((r) => r.json()));
 				data.set(tempData);
-				console.log("data is", $data)
 			}
 			getData()
 		}
